@@ -1,8 +1,8 @@
 function changeOuterLinks() {
-  const elements = document.querySelectorAll("a");
+  const elements = document.querySelectorAll('nav#link-list a');
   for (let element of elements) {
-    if (element.innerHTML.includes("outer-link")) {
-      element.setAttribute("target", "_blank");
+    if (element.innerHTML.includes('outer-link')) {
+      element.setAttribute('target', '_blank');
       element.innerHTML = `<strong>${element.innerHTML}</strong>`;
     }
   }
@@ -23,7 +23,7 @@ function changeOuterLinks() {
     margin: 0 auto;
     border: 1px solid blue;
     padding: 16px`;
-  document.querySelector("nav#link-list").style.cssText = styleText;
+  document.querySelector('nav#link-list').style.cssText = styleText;
 }
 
 export { changeOuterLinks };

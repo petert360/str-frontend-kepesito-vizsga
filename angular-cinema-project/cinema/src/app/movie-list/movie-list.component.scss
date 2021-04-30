@@ -1,1 +1,20 @@
-.table-section {}
+@import 'mixin';
+
+.table-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+#get-button{
+    @include cinema-background-style;
+}
+
+.table {
+    @include set-text;
+}
+
+
+.deleteButton{
+    @include set-text;
+    @include delete-style;
+}

@@ -1,5 +1,8 @@
+import { getAllLifecycleHooks } from '@angular/compiler/src/lifecycle_reflector';
 import { Component, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Movie } from '../model/movie';
+import { HttpService } from '../service/http.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -8,15 +11,22 @@ import { Movie } from '../model/movie';
 })
 export class MovieListComponent implements OnInit {
 
-  movies: Movie[] = [];
+  //movies: Movie[] = [];
+  movieList$: BehaviorSubject<Movie[]> = this.mService.list$;
 
-  constructor() { }
+  constructor(
+    private mService: HttpService,
+  ) { }
 
   ngOnInit(): void {
   }
 
-  getMovies(): void {}
+  getMovies(): void {
+    this.mService.getMovieList()
+  }
 
-  deleteMovie(id: number): any {}
+  deleteMovie(id: number): any {
+    this.mService.deleteMovie(id);
+  }
 
 }
